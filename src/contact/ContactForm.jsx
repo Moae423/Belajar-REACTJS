@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useImmer } from "use-immer";
 
 // deklarasikan data (InitalDataa)
 const InitialData = {
@@ -7,18 +8,16 @@ const InitialData = {
 };
 export default function ContactForm() {
   // useState dari data yang dideklrasikan diatas
-  const [contact, setContact] = useState(InitialData);
-  function handleNameChanges(event) {
-    setContact({
-      ...contact,
-      name: event.target.value,
+  const [contact, setContact] = useImmer(InitialData);
+  function handleNameChanges(e) {
+    setContact((contact) => {
+      contact.name = e.target.value;
     });
   }
 
   function handleMessageChanges(event) {
-    event.setContact({
-      ...contact,
-      message: event.target.value,
+    setContact((contact) => {
+      contact.message = event.target.value;
     });
   }
   return (
