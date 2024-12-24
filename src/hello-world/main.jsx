@@ -10,6 +10,7 @@ import MyButton from "../button/MyButton.jsx";
 import Toolbar from "../toolbar/toolbar.jsx";
 import SearchForm from "../searchForm/searchForm.jsx";
 import SayHello from "../searchForm/sayHelloForm.jsx";
+import Counter from "../counter/counter.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Container>
@@ -18,7 +19,6 @@ createRoot(document.getElementById("root")).render(
       <TodoList />
       <AlertButton text="click me" message={"ups, wkwk"} />
       <MyButton text="smash me" onSmash={() => alert("you smash me")} />
-
       <Toolbar
         onClick={(event) => {
           event.stopPropagation();
@@ -29,6 +29,8 @@ createRoot(document.getElementById("root")).render(
       <br />
       <br />
       <SayHello />
+      <Counter />
+      <Counter />
     </Container>
   </StrictMode>
 );
